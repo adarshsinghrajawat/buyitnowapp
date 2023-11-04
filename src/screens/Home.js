@@ -20,7 +20,7 @@ export default function Home()
     const setInitialData=async()=>{
     var result=await getData('userinterface/fetch_all_category')
     setCategories(result.data)
-    var res=await postData('userinterface/fetch_products_by_category',{categoryname:'Dawat Basmati'})
+    var res=await postData('userinterface/fetch_products_by_category',{categoryname:'Fruits'})
    
     setProducts(res.data)
    }
