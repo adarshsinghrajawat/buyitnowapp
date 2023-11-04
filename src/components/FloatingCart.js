@@ -15,7 +15,7 @@ export default function FloatingCart(){
     var cart=Object.values(cart)
     var totalamount=cart.reduce((p1,p2)=>{
      var amt=p2.offerprice>0?p2.offerprice:p2.price
-     return p1+amt
+     return parseInt(p1)+parseInt(amt)
     },0)
     return(<View style={{position:'absolute',top:height*0.82,zIndex:1 }}>   
           <View style={{margin:1,backgroundColor:Colors.darkGreen,width:width*0.95,height:height*0.08,borderRadius:10,borderWidth:0.4}}>
