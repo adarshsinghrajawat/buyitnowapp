@@ -54,7 +54,6 @@ export default function Tip(props) {
       alert("hii")
       handlePayment()
     }
-
   }
 
   return (<View >

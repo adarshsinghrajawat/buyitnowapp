@@ -6,34 +6,33 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native';
-import {useState} from 'react';
+import { useState } from 'react';
 import Button from '../Button';
 import Colors from '../../../assets/Colors';
 import { storeData } from '../../storage/AsyncStorage';
 import { postData } from '../../services/ServerServices';
 const AddressDialog = (props) => {
-   
- 
-  const [mobileno,setMobileno]=useState('')
-  
-  const [address,setAddress]=useState('')
-  const [state,setState]=useState('')
-  const [city,setCity]=useState('')
-  const [zipCode,setZipCode]=useState('')
-  const [name,setName]=useState('')
-  const handleSubmit=async()=>{
-    var body={userid:props?.userMobileData[0]?.userid,phone:props.userMobileData[0].mobileno,fullname:name,state:state,city:city,zipcode:zipCode,address:address}
-    console.log("xxxxxxx",body)
-    var result=await postData('userinterface/add_user_address',body)
-    if(result.status)
-    { await storeData(props?.userMobileData[0]?.mobileno,body)
+
+
+  const [mobileno, setMobileno] = useState('')
+
+  const [address, setAddress] = useState('')
+  const [state, setState] = useState('')
+  const [city, setCity] = useState('')
+  const [zipCode, setZipCode] = useState('')
+  const [name, setName] = useState('')
+  const handleSubmit = async () => {
+    var body = { userid: props?.userMobileData[0]?.userid, phone: props.userMobileData[0].mobileno, fullname: name, state: state, city: city, zipcode: zipCode, address: address }
+    console.log("xxxxxxx", body)
+    var result = await postData('userinterface/add_user_address', body)
+    if (result.status) {
+      await storeData(props?.userMobileData[0]?.mobileno, body)
       props.setAddressDialog(false)
     }
-    else
-    {
+    else {
       alert('Fail to submit address')
     }
-  } 
+  }
 
   return (
     <View style={styles.container}>
@@ -44,37 +43,38 @@ const AddressDialog = (props) => {
               <Text style={styles.heading}>Enter Your Address</Text>
               <View style={styles.txtbox}>
                 <TextInput
-                  style={styles.mobtxt}
-                  value={props?.userMobileData[0]?.mobileno} 
+                  style={{ color: 'grey' }}
+                  //style={styles.mobtxt}
+                  value={props?.userMobileData[0]?.mobileno}
                   placeholder={'Mobile Number'}
                 />
               </View>
               <View style={styles.txtbox}>
-                <TextInput style={styles.mobtxt} 
-                onChangeText={(txt)=>setName(txt)}
-                placeholder={'Full Name...'} />
-              </View>
-              <View style={styles.txtbox}>
-                <TextInput style={styles.mobtxt} 
-  
-                onChangeText={(txt)=>setAddress(txt)}
-   
-                placeholder={'Address'} />
+                <TextInput style={{ color: 'grey' }}
+                  onChangeText={(txt) => setName(txt)}
+                  placeholder={'Full Name...'} />
               </View>
               <View style={styles.txtbox}>
                 <TextInput style={styles.mobtxt}
-                onChangeText={(txt)=>setCity(txt)}
-                placeholder={'City'} />
+
+                  onChangeText={(txt) => setAddress(txt)}
+
+                  placeholder={'Address'} />
               </View>
               <View style={styles.txtbox}>
-                <TextInput style={styles.mobtxt} 
-                onChangeText={(txt)=>setState(txt)}
-                placeholder={'State'} />
+                <TextInput style={styles.mobtxt}
+                  onChangeText={(txt) => setCity(txt)}
+                  placeholder={'City'} />
               </View>
               <View style={styles.txtbox}>
-                <TextInput style={styles.mobtxt} 
-                onChangeText={(txt)=>setZipCode(txt)}
-                placeholder={'Pincode'} />
+                <TextInput style={styles.mobtxt}
+                  onChangeText={(txt) => setState(txt)}
+                  placeholder={'State'} />
+              </View>
+              <View style={styles.txtbox}>
+                <TextInput style={styles.mobtxt}
+                  onChangeText={(txt) => setZipCode(txt)}
+                  placeholder={'Pincode'} />
               </View>
               <View style={styles.btn}>
                 <Button
@@ -83,8 +83,8 @@ const AddressDialog = (props) => {
                   width={240}
                   height={45}
                   title={'Submit Details'}
-                  onPress={()=>handleSubmit()}
-                  
+                  onPress={() => handleSubmit()}
+
                 />
               </View>
             </ScrollView>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     flex: 1,
-    color:'grey'
+    color: 'grey'
   },
   txtview: {
     alignItems: 'center',
@@ -113,17 +113,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width: 280,
     borderRadius: 5,
-    color:'grey'
+    color: 'grey'
+
   },
   txtbox: {
-    borderWidth: 0.4,
+    borderWidth: 0.9,
     borderColor: '#000',
     width: 240,
-    height: 40,
+    height: 48,
     justifyContent: 'center',
     padding: 3,
     marginTop: '4%',
-    color:'grey'
+    color: 'grey'
+
     // alignItems:'center'
   },
   heading: {
@@ -135,9 +137,11 @@ const styles = StyleSheet.create({
   mobtxt: {
     justifyContent: 'flex-start',
     fontSize: 16,
-    color:'grey'
+    color: 'grey'
+
   },
   btn: {
     marginVertical: '4%',
+
   },
 });

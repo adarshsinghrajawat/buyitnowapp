@@ -24,7 +24,7 @@ props.setStatus(false)
       <Modal    visible={props.status} animationType="slide" transparent={true} >
         <View style={styles.container}>
           <View style={styles.textview}>
-            <Text style={styles.txtstyle}>Gwalior Basket</Text>
+            <Text style={styles.txtstyle}>buyitNOW</Text>
             <View style={styles.description}>
               <Text style={styles.txtdescription}>
                 Please Submit Your Mobile Number.
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   textview: {
     width: 320,
-    height: 220,
+    height: 250,
     backgroundColor: '#fff',
     // justifyContent: 'center',
     padding: '3.5%',

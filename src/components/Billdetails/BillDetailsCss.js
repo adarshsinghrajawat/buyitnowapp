@@ -27,11 +27,12 @@ const styles = StyleSheet.create({
         color:'grey'
     },
     heading: {
-        fontSize: 18,
+        fontSize: 20,
+        textDecorationLine:'underline line',
         fontWeight: 'bold',
-        color: '#000',
-        
-    },
+        fontFamily:'poppins',
+        color: '#000'
+    },  
     icontxt:{
         flexDirection:'row',
         justifyContent:'center',

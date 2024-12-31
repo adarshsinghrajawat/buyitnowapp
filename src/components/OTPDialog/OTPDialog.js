@@ -60,7 +60,7 @@ const OTPDialog = (props) => {
       <Modal visible={props.otpDialog} animationType="slide" transparent={true} >
         <View style={styles.container}>
           <View style={styles.textview}>
-            <Text style={styles.txtstyle}>Gwalior Basket</Text>
+            <Text style={styles.txtstyle}>buyitNOW</Text>
             <View style={styles.description}>
               <Text style={styles.txtdescription}>
                 Please Enter Correct Valid OTP.
